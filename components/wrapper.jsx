@@ -11,6 +11,16 @@ var ReactDOM = require("react-dom");
                 b: 0
             }
         },
+        handleAChange: function(ele) {
+            this.setState({
+                a: parseFloat(ele.target.value)
+            });
+        },
+        handleBChange:function(ele) {
+            this.setState({
+                b: parseFloat(ele.target.value)
+            });
+        },
         add: function() {
             var aInput = $('#a');
             var bInput = $('#b');
@@ -30,8 +40,8 @@ var ReactDOM = require("react-dom");
                 <div id="container">
                     <h1 id="result">0</h1>
                     <div>
-                        <input id="a"/>
-                        <input id="b"/>
+                        <input type="number" onChange={this.handleAChange} id="a"/>
+                        <input type="number" onChange={this.handleBChange} id="b"/>
                     </div>
                     <div>
                         <button onClick={this.add}>ADD</button>
